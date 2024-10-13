@@ -1,11 +1,21 @@
+import { getServerSession } from "next-auth"
 import { NextResponse } from "next/server";
-//@ts-ignore
-import client from "@repo/db/client"
+import { authOptions } from "../../lib/auth";
 
 export const GET = async () => {
-  const user = await client.user.findMany({})
-  return NextResponse.json({
-    msg: user
-  })
-}
+  const session = await getServerSession(authOptions);
 
+  try {
+    if (session.user) {
+      return NextResponse.json({
+        user: session.user
+      })
+    }
+  } catch (e) {
+    return NextResponse.json({
+      message: "You are not logged in"
+    }, {
+      status: 403
+    })
+  }
+}
