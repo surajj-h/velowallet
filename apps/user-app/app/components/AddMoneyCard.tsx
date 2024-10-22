@@ -13,9 +13,9 @@ const SUPPORTED_BANKS = [{
   redirectUrl: "https://www.axisbank.com/"
 }];
 
-export const AddMoney = () => {
+export const AddMoney = ({ className }: { className: string }) => {
   const [redirectUrl, setRedirectUrl] = useState(SUPPORTED_BANKS[0]?.redirectUrl);
-  return <Card title="Add Money">
+  return <Card title="Add Money" className={className}>
     <div className="w-full">
       <TextInput label={"Amount"} placeholder={"Amount"} onChange={() => {
 

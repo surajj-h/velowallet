@@ -6,7 +6,7 @@ export default function Layout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex">
+    <div className="flex bg-[#EEEEEE]">
       <div className="w-64 border-r border-slate-300 min-h-screen mr-4 pt-28">
         <div>
           <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />

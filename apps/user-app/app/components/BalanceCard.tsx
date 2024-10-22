@@ -1,10 +1,11 @@
 import { Card } from "@repo/ui/card";
 
-export const BalanceCard = ({ amount, locked }: {
+export const BalanceCard = ({ amount, locked, className }: {
   amount: number;
   locked: number;
+  className: string;
 }) => {
-  return <Card title={"Balance"}>
+  return <Card title={"Balance"} className={className}>
     <div className="flex justify-between border-b border-slate-300 pb-2">
       <div>
         Unlocked balance
