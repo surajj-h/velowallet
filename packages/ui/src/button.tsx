@@ -4,16 +4,17 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  onClick: () => void
+  onClick: () => void,
+  color?: string
 }
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+export const Button = ({ children, onClick, color = "white" }: ButtonProps) => {
   return (
     <button
-      className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+      className={`text-${color} hover:text-white hover:bg-[#3B1E54] ring-1 ring-[#9B7EBD] focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 mt-2 mb-2`}
       onClick={onClick}
     >
       {children}
     </button>
   );
-};
+}
