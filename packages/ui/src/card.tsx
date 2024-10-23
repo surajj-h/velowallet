@@ -11,7 +11,7 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={`border p-4 rounded-md ${className}`}
+      className={`border p-4 rounded-lg ${className}`}
     >
       <h1 className="text-xl border-b pb-2">
         {title}
