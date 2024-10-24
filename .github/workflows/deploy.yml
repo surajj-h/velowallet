@@ -28,3 +28,15 @@ jobs:
 
     - name: Verify Pushed Image
       run: docker pull surajrh/velowallet:latest
+
+    - name: Deploy to EC2 Instance
+      uses: appleboy/ssh-action@master
+      with: 
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo docker pull surajrh/velowallet:latest
+          sudo docker stop velowallet || true
+          sudo docker rm velowallet || true
+          sudo docker run -d -e DATABASE_URL=${{ secrets.DATABASE_URL }} --name velowallet -p 3005:3000 surajrh/velowallet:latest
