@@ -64,7 +64,6 @@ export async function p2pTransfer(phone: string, amount: number) {
           timestamp: new Date()
         }
       })
-
     })
   } catch (error) {
     return {
