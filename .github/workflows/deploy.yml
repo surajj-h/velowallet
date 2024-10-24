@@ -24,7 +24,7 @@ jobs:
         context: .
         file: ./docker/Dockerfile.user
         push: true
-        tage: surajrh/velowallet:latest
+        tags: surajrh/velowallet:latest
 
     - name: Verify Pushed Image
       run: docker pull surajrh/velowallet:latest
