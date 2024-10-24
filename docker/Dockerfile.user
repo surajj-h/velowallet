@@ -8,6 +8,7 @@ COPY packages ./packages
 
 RUN npm install
 RUN npm run build
+RUN npm run prisma:generate
 
 # script to run prisma generate at container startup
 
