@@ -25,9 +25,7 @@ jobs:
         file: ./docker/Dockerfile.user
         push: true
         tags: surajrh/velowallet:latest
-        build-args: |
-          DATABASE_URL= ${{ secrets.DATABASE_URL }}
-
+      
     - name: Verify Pushed Image
       run: docker pull surajrh/velowallet:latest
 
