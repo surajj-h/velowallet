@@ -39,4 +39,4 @@ jobs:
           sudo docker pull surajrh/velowallet:latest
           sudo docker stop velowallet || true
           sudo docker rm velowallet || true
-          sudo docker run -d -e DATABASE_URL ${{ secrets.DATABASE_URL }} --name velowallet -p 3005:3000 surajrh/velowallet:latest
+          sudo docker run -d -e DATABASE_URL=${{ secrets.DATABASE_URL }} --name velowallet -p 3005:3000 surajrh/velowallet:latest
