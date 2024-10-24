@@ -5,6 +5,14 @@ import { AddMoney } from "../../components/AddMoneyCard";
 import { BalanceCard } from "../../components/BalanceCard";
 import { OnRampTransactions } from "../../components/OnRampTransactionsCard";
 
+interface OnRampTransaction {
+  token: string;
+  startTime: Date;
+  amount: number;
+  status: string;
+  provider: string;
+}
+
 async function getBalance() {
   const session = await getServerSession(authOptions);
   const balance = await prisma.balance.findFirst({
@@ -25,7 +33,7 @@ async function getOnRampTransactions() {
       userId: Number(session?.user?.id)
     }
   });
-  return txns.map(t => ({
+  return txns.map((t: OnRampTransaction) => ({
     token: t.token,
     time: t.startTime,
     amount: t.amount,
