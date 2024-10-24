@@ -19,14 +19,14 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker Image
-      env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
       uses: docker/build-push-action@v2
       with:
         context: .
         file: ./docker/Dockerfile.user
         push: true
         tags: surajrh/velowallet:latest
+        build-args: |
+          DATABASE_URL= ${{ secrets.DATABASE_URL }}
 
     - name: Verify Pushed Image
       run: docker pull surajrh/velowallet:latest
