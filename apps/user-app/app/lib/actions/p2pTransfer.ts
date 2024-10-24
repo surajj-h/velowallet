@@ -3,6 +3,7 @@
 import prisma from "@repo/db/client"
 import { getServerSession } from "next-auth"
 import { authOptions } from "../auth"
+import { Prisma } from "@prisma/client"
 
 export async function p2pTransfer(phone: string, amount: number) {
   const session = await getServerSession(authOptions);
@@ -34,7 +35,7 @@ export async function p2pTransfer(phone: string, amount: number) {
   }
 
   try {
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(phone)} FOR UPDATE`;
 
       const fromUserBalance = await tx.balance.findUnique({
