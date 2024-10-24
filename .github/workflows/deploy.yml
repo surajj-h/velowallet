@@ -36,7 +36,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          sudo docker stop $(docker ps -aq)
+          sudo docker rmi $(docker images -q)
           sudo docker pull surajrh/velowallet:latest
-          sudo docker stop surajrh/velowallet || true
-          sudo docker rm surajrh/velowallet || true
           sudo docker run -d -e JWT_SECRET=${{ secrets.JWT_SECRET }} NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }} DATABASE_URL=${{ secrets.DATABASE_URL }} --name velowallet -p 3005:3000 surajrh/velowallet:latest
