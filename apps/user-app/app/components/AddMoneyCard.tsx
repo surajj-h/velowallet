@@ -35,7 +35,7 @@ export const AddMoney = ({ className }: { className: string }) => {
         value: x.name
       }))} />
       <div className="flex justify-center pt-4">
-        <Button onClick={async () => {
+        <Button color="#FFFFFF" onClick={async () => {
           await createOnRampTransactions(provider, amount)
           window.location.href = redirectUrl || "";
         }}>
