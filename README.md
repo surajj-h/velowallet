@@ -6,8 +6,7 @@ VeloWallet is a secure web-based wallet application designed for seamless user t
 
 - Secure user authentication and authorization
 - Real-time transaction processing
-- Account management dashboard
-- Transaction history and analytics
+- Transaction history 
 - Secure fund transfers between users
 
 ## Tech Stack 🛠
