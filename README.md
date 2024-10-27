@@ -24,7 +24,6 @@ VeloWallet is a secure web-based wallet application designed for seamless user t
 
 - **Infrastructure:**
   - Turborepo
-  - Docker
   - Digitalocean Droplet
   - aiven (PostgreSQL hosting)
 
