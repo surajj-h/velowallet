@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import { SidebarItem } from "../components/SidebarItem";
 
 export default function Layout({
@@ -5,14 +8,38 @@ export default function Layout({
 }: {
   children: React.ReactNode
 }) {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <div className="flex bg-[#EEEEEE]">
-      <div className="w-64 border-r border-slate-300 min-h-screen mr-4 pt-28">
+    <div className="flex bg-[#F6E7FF]">
+      <div className={`fixed lg:static z-20 transition-all duration-300 ease-in-out border-r-4 rounded border-[#FBF5FF] min-h-screen pt-10 ${isOpen ? "w-64" : "w-20"}`} >
+        <div className="pb-8">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="pl-5 transition-colors duration-200"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 flex flex-col gap-1.5">
+              <span className={`
+                block h-0.5 bg-slate-600 rounded-full transition-all duration-300
+                ${isOpen ? "w-6" : "w-6"}
+              `}></span>
+              <span className={`
+                block h-0.5 bg-slate-600 rounded-full transition-all duration-300
+                ${isOpen ? "w-4" : "w-6"}
+              `}></span>
+              <span className={`
+                block h-0.5 bg-slate-600 rounded-full transition-all duration-300
+                ${isOpen ? "w-6" : "w-6"}
+              `}></span>
+            </div>
+          </button>
+        </div>
         <div>
-          <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
-          <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
-          <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} title="Transactions" />
-          <SidebarItem href={"/p2ptransfer"} icon={<P2PIcon />} title="P2P transfer" />
+          <SidebarItem href={"/dashboard"} icon={<HomeIcon />} isOpen={isOpen} title="Home" />
+          <SidebarItem href={"/transfer"} icon={<TransferIcon />} isOpen={isOpen} title="Transfer" />
+          <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} isOpen={isOpen} title="Transactions" />
+          <SidebarItem href={"/p2ptransfer"} icon={<P2PIcon />} isOpen={isOpen} title="P2P transfer" />
         </div>
       </div>
       {children}
