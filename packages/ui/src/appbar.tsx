@@ -1,4 +1,5 @@
 import { Button } from "./button";
+import Link from "next/link";
 
 interface AppBarProps {
   user?: {
@@ -18,24 +19,26 @@ export const Appbar = ({
   const userName = user?.name;
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-10 bg-white">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-        <div className="text-3xl font-bold text-[#5b21b6]">Velowallet</div>
+    <div className="max-w-8xl mx-auto px-4 min-[400px]:px-12 min-[550px]:px-16 min-[750]:px-24 py-5 flex justify-between items-center bg-[#FBF5FF]">
+      <Link href="/">
+        <h1 className="text-4xl font-bold text-[#470368] tracking-normal">
+          Velowallet
+        </h1>
+      </Link>
 
-        {userName ? (
-          <div className="flex items-center gap-4">
-            <span className="text-lg font-medium text-[#803ead]">
-              Welcome, <span className="font-semibold">{userName}</span>
-            </span>
-            <Button color="#803aed" onClick={onSignout}>
-              Logout
-            </Button>
-          </div>
-        ) : (
-          <Button color="#803ead" onClick={onSignin}>
-            Login
+      {userName ? (
+        <div className="flex items-center gap-4">
+          <span className="text-lg font-medium text-[#803ead]">
+            Welcome, <span className="font-semibold">{userName[0]?.toUpperCase() + userName.slice(1, 100).toLowerCase()}</span>
+          </span>
+          <Button onClick={onSignout}>
+            Logout
           </Button>
-        )}
-      </div>
+        </div>
+      ) : (
+        <Button onClick={onSignin}>
+          Signin
+        </Button>
+      )}
     </div>);
 }
