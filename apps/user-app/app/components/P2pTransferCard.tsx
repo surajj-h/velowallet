@@ -32,7 +32,7 @@ export const P2pTransferCard = ({ className
           )}
         </div>
         <div className="flex pt-3 justify-center">
-          <Button color="#FFFFFF" onClick={async () => {
+          <Button onClick={async () => {
             const response = await p2pTransfer(number, Number(amount))
             if (response.success === true) setMessage("success")
             else setMessage("1")
