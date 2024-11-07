@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function SignUp() {
   const router = useRouter();
@@ -57,14 +58,15 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#FBF5FF]">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-[#4c1d95]">
-            Create an Account
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Enter your details to sign up
+          <Link href="/">
+            <h1 className="text-7xl font-bold text-[#470368] tracking-normal text-center">
+              Velowallet
+            </h1>
+          </Link>
+          <p className="mt-2 pt-20 text-center text-sm text-gray-600"> Enter your details to sign up
           </p>
         </div>
 
@@ -132,7 +134,7 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#4c1d95] hover:bg-[#6d28d9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#470368] hover:bg-[#67178C] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               {isLoading ? "Signing up..." : "Sign up"}
             </button>

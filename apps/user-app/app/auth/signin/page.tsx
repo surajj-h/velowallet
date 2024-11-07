@@ -1,6 +1,7 @@
 'use client';
 
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -54,13 +55,15 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#FBF5FF]">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-[#4c1d95]">
-            Welcome back
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <Link href="/">
+            <h1 className="text-7xl font-bold text-[#470368] tracking-normal text-center">
+              Velowallet
+            </h1>
+          </Link>
+          <p className="mt-20 text-center text-sm text-gray-600">
             Enter your phone number to sign in
           </p>
         </div>
@@ -113,7 +116,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#4c1d95] hover:bg-[#6d28d9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#470368] hover:bg-[#67178C] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
