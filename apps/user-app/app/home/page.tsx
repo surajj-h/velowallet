@@ -3,7 +3,7 @@ import phoneImage from '../public/phoneImage.png';
 
 export default function Home() {
   return (
-    <div className="max-w-8xl flex flex-col lg:flex-row items-center justify-between lg:pl-24 px-4 bg-[#EED3FF] max-h-screen">
+    <div className="max-w-8xl flex flex-col lg:flex-row items-center justify-between lg:pl-24 pt-20 px-4 bg-[#EED3FF] max-h-fit">
       <div className='flex flex-col pl-4'>
         <div className='flex flex-row pt-16 lg:pt-0'>
           <p className='text-[40px] min-[450px]:text-5xl md:text-6xl font-bold text-[#470368] tracking-tight min-[450px]:tracking-wide pr-4'>Seamless</p>
